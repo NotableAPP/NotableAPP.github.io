@@ -5,4 +5,6 @@ The mail icon used in our app is created by fluent design of Microsoft this is n
 ### Whatsapp icon by Whatsapp Inc
 ![WA](598px-WhatsApp.svg.png)
 The icon of whatsapp used in our app have copyright of whatsapp and not owned by us/boosted notes app.
-![Tg](1024px-
+### Telegram icon by @telegram
+![Tg](1024px-Telegram_logo.svg.png)
+Telegram icon is owned by telegram and not owned by us/boosted.
