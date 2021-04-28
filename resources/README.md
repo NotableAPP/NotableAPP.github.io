@@ -1,3 +1,3 @@
 # the resources we used in our app
-![mail.png](mail.png)
-This icon is got from fluent design
+![Mail.png](Mail.png)
+This icon is  from fluent design
