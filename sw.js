@@ -4,6 +4,8 @@ self.addEventListener('install', function(e) {
         return cache.addAll([
           'https://notableapp.github.io/',
           'index.html',
+          'create.html',
+          'view.html',
           'app.js',
           'style.css',
           'app data/ico@max.png',
