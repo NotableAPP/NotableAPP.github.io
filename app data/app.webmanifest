@@ -27,9 +27,9 @@
     "url": "https://notableapp.github.io/",
 "icons": [
     {
-      "src": "",
+      "src": "/app data/note_add_black_24dp.svg",
       "sizes": "96x96",
-      "type": "image/png",
+      "type": "image/svg",
       
     }
   ],
@@ -45,7 +45,7 @@
       "type": "image/svg"
     }
   ],
-    "description": "Note your notes."
+    "description": "add your tasks."
   }
 ],
   "start_url": "https://notableapp.github.io/",
