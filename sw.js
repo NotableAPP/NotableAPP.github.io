@@ -10,7 +10,8 @@ self.addEventListener('install', function(e) {
           'style.css',
           'screen/toolbar.jpg',
           'screen/Ntmg.jpg',
-          
+          'app data/note_add_black_24dp.svg',
+          'app data/add_task_black_24dp.svg'
           'app data/ico@max.png',
           'app data/ico@192.png',
           'app data/ico@384.png',  
