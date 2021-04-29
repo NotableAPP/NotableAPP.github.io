@@ -6,11 +6,10 @@ self.addEventListener('install', function(e) {
           'index.html',
           'app.js',
           'style.css',
-		  'app data/',
           'app data/ico@max.png',
-		  'app data/ico@192.png',
-		  'app data/ico@384.png', 
-		  'app data/ico@512.png',
+          'app data/ico@192.png',
+          'app data/ico@384.png',  
+          'app data/ico@512.png',
           'app data/Mail.png',
           'app data/Sms.png',
           'app data/598px-WhatsApp.svg.png',
@@ -18,7 +17,9 @@ self.addEventListener('install', function(e) {
           'cous.html',
 		  'app data/note_add_black_24dp.svg', 	
           'app data/add_task_black_24dp.svg',
-		  	
+	  'res/bs.css',
+          'res/bs.js',
+          'res/ghmdsindre.css',	  	
         ]);
       })
     );
