@@ -5,7 +5,7 @@ self.addEventListener('install', function(e) {
           'https://notableapp.github.io/',
           'index.html',
           'create.html',
-          'create.html?edit=true',
+          
           'view.html',
           'app.js',
           'style.css',
