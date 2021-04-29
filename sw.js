@@ -2,7 +2,7 @@ self.addEventListener('install', function(e) {
     e.waitUntil(
       caches.open('notableapp').then(function(cache) {
         return cache.addAll([
-         
+          'https://notableapp.github.io/',
           'index.html',
           'app.js',
           'style.css',
