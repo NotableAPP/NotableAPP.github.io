@@ -127,7 +127,7 @@ let deferredPrompt;
    `;
    document.body.append(cont);
    cont.style.padding="5px";
-    $("button[data-for-cancel-btn]").addEventListener('click,()=>{cont.remove()});
+    $("button[data-for-cancel-btn]").addEventListener('click',()=>{cont.remove()});
     $("button[data-for-add-btn]").addEventListener('click', (e) => {
     // hide our user interface that shows our A2HS button 
     cont.remove();
