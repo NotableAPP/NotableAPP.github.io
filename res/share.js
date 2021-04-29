@@ -35,7 +35,7 @@ window.location.assign(`								https://t.me/share/url?url=${data.url}&text=${da
 								}
 				},
 				mail:{
-				    icon:"app data/mail.png",
+				    icon:"app data/Mail.png",
 								fun: function (data){
 								
 												window.location.assign(`
