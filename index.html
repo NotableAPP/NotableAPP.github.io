@@ -123,9 +123,10 @@ let deferredPrompt;
    </div>
    `;
    document.body.append(cont);
+   cont.style.padding="5px";
     $("button[data-for-add-btn]").addEventListener('click', (e) => {
     // hide our user interface that shows our A2HS button 
-    addBtn.style.display = 'none';
+    cont.remove();
      // Show the prompt
       deferredPrompt.prompt();
       // Wait for the user to respond to the prompt
