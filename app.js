@@ -1,4 +1,4 @@
-
+var eventListenerAdded=false;
 if(!localStorage.viewTobe){localStorage.viewTobe="list"; localStorage.currengView="grid"};
  if(localStorage.noteStores==undefined){
   				localStorage.noteStores=JSON.stringify({
@@ -139,6 +139,8 @@ for(tab of $all('.nav-link')){
      								btnValue:"Done",
      								
      				});
+if(eventListenerAdded!=true){ 
+eventListenerAdded=true; 			
      				document.getElementById("alertBtn").addEventListener('click',function () {
      				if($("textarea[data-text-for-task]")){
    var task = $("textarea[data-text-for-task]").value;
@@ -148,6 +150,7 @@ for(tab of $all('.nav-link')){
    }
    };
 });
+}
       });
   }if(localStorage.mode=="dark"){  $all(".dropdown-menu").forEach(function (e){console.log(e);e.classList.add("dropdown-menu-dark","dropdownmenu-dark","dropdown-dark");});};});}
 function createGridNotes() {
