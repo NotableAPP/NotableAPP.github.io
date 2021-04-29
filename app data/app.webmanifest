@@ -1,0 +1,56 @@
+{
+  "name": "Boosted",
+  "short_name": "Boosted",
+  "description": "The ultimate noting and tasking app.",
+  "icons": [
+    {
+      "src": "/app data/ico@512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+	     "purpose":"maskable"
+    },{
+      "src": "/app data/ico@max.png",
+      "sizes": "1575x1575",
+      "type": "image/png",
+	     "purpose":"maskable"
+    },{
+      "src": "/app data/ico@384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+	     "purpose":"maskable"
+    }
+  ],
+"shortcuts" : [
+  {
+"short_name":"Add note",
+    "name": "Add Note",
+    "url": "https://notableapp.github.io/",
+"icons": [
+    {
+      "src": "/app data/note_add_black_24dp.svg",
+      "sizes": "24x24",
+      "type": "image/png"
+    }
+  ],
+    "description": "Note your notes."
+  }, {
+"short_name":"Add task",
+    "name": "Add task",
+    "url": "https://notableapp.github.io/?openTask=true",
+"icons": [
+    {
+      "src": "/app data/add_task_black_24dp.svg",
+      "sizes": "24x24",
+      "type": "image/png"
+    }
+  ],
+    "description": "Note your notes."
+  }
+],
+  "start_url": "https://notableapp.github.io/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#6610f2",
+  "orientation":"portrait",
+  "scope": "https://notableapp.github.io/"
+}
