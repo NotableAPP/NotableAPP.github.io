@@ -8,8 +8,7 @@ self.addEventListener('install', function(e) {
           'view.html',
           'app.js',
           'style.css',
-          'screen/toolbar.jpg',
-          'screen/Ntmg.jpg',
+          
           'app data/note_add_black_24dp.svg',
           'app data/add_task_black_24dp.svg',
           'app data/ico@max.png',
