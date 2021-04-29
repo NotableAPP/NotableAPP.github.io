@@ -49,7 +49,7 @@
 ],
   "start_url": "https://notableapp.github.io/",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#6610f2",
   "background_color": "#6610f2",
   "orientation":"portrait",
   "scope": "https://notableapp.github.io/"
