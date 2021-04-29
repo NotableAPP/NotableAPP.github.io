@@ -19,7 +19,10 @@ self.addEventListener('install', function(e) {
           'app data/add_task_black_24dp.svg',
 	  'res/bs.css',
           'res/bs.js',
-          'res/ghmdsindre.css',	  	
+          'res/ghmdsindre.css',	 
+          'res/sd.js',
+          'res/share.js',
+          'res/swalt@codeninja02.js' 	
         ]);
       })
     );
