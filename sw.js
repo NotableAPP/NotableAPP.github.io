@@ -8,6 +8,7 @@ self.addEventListener('install', function(e) {
           'view.html',
           'app.js',
           'style.css',
+          'screen/toolbar.jpg'
           'app data/ico@max.png',
           'app data/ico@192.png',
           'app data/ico@384.png',  
