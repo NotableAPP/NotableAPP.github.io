@@ -7,17 +7,17 @@
       "src": "/app data/ico@512.png",
       "sizes": "512x512",
       "type": "image/png",
-	     "purpose":"maskable"
+	     "purpose":"any"
     },{
       "src": "/app data/ico@max.png",
       "sizes": "1575x1575",
       "type": "image/png",
-	     "purpose":"maskable"
+	     "purpose":"any"
     },{
       "src": "/app data/ico@384.png",
       "sizes": "384x384",
       "type": "image/png",
-	     "purpose":"maskable"
+	     "purpose":"any"
     }
   ],
 "shortcuts" : [
@@ -28,8 +28,8 @@
 "icons": [
     {
       "src": "/app data/note_add_black_24dp.svg",
-      "sizes": "24x24",
-      "type": "image/png"
+      "sizes": "96x96",
+      "type": "image/svg"
     }
   ],
     "description": "Note your notes."
@@ -40,8 +40,8 @@
 "icons": [
     {
       "src": "/app data/add_task_black_24dp.svg",
-      "sizes": "24x24",
-      "type": "image/png"
+      "sizes": "96x96",
+      "type": "image/svg"
     }
   ],
     "description": "Note your notes."
