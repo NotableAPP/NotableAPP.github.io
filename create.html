@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+				<meta charset='utf-8'>
+				 <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+				<title>Create Note | Notable</title>
+				<!-- notable-css -->
+				<link rel="stylesheet" href="style.css">
+				<link rel="icon"href="app data/ico@max.png">
+				<!-- bs link -->
+				<link rel="stylesheet" href="res/bs.css">
+				<!-- mt de ic cdn -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   <!-- github@sndresorhus's css for github markdown -->
+   <link rel="stylesheet" href="res/ghmdsindre.css">
+   <!-- meta -->
+   <meta name="description" content="this is Bosted's note editing app.">
+  <meta name="theme-color" content="#6610f2">
+   <script>
+if(localStorage.mode==="dark"){var styleFordark = document.createElement("style");  				styleFordark.innerHTML=`body{background:#181614;} 	.form-control,.form-control[readonly],.form-control:focus{background: transparent;color:#efefef !important;}textarea:focus{color:#efefef;}textarea,div.fullscreen-div{   			color:#efefef;}.material-icons{ color:#efefef !important;}.markdown-body	pre{background:#0d1e1f;}.markdown-body table th,.markdown-body td{background:#101025;}`;document.head.append(styleFordark);}
+   getParam=(p,str)=>{
+
+var url = new URL(str);
+var c = url.searchParams.get(p);
+console.log(c);return c}
+
+
+
+window.addEventListener("load", function (){
+if(sessionStorage.i!=null&&getParam("edit",window.location.href)!=null){
+$("input[data-id-of-note]").value=sessionStorage.i.replaceAll("#","");
+$("input[data-id-of-note]").readOnly=true;
+	$("input[data-id-of-note]").addEventListener('click',function(){
+		swalt("you can not change id in editing session <br> sorry",{
+			title:'You can not change id',mode:localStorage.mode
+		})
+	})
+}
+if(sessionStorage.cnt!=null&&getParam("edit",window.location.href)!=null){
+$("textarea[data-type=input-for-note]").value=sessionStorage.cnt;
+}
+});
+
+   </script>
+   
+</head>
+<body class="page-create">
+				<div class="fullscreen-div markdown-body"data-type="preview-for-note">
+						
+		</div>
+
+		<textarea class="fullscreen-div"style="outline:none; background: transparent;"data-type="input-for-note" placeholder="&gt; start Note here"></textarea>		
+						
+		<div data-type="toolbar-op" >
+						<button data-href="index.html" data-type="back from-for-note" class="btn mt-ico-nt cc"><i class="material-icons" style="margin:auto;">arrow_back</i></button>
+						<button data-type="done-for-note" class="btn mt-ico-nt cc" data-saver><i class="material-icons" style="margin:auto;"  >save</i></button>
+						
+						<button data-type="back from-for-note" class="btn mt-ico-nt cc"><i class="material-icons" style="margin:auto;" onclick="guide()">help</i></button>
+		
+		</div>
+		
+		<div data-type="toolbar-op">
+						<button data-type="preview-for-note" class="btn mt-ico-nt cc"><i class="material-icons" style="margin:auto;">play_circle</i></button>
+						<input type="text" class="form-control cc" placeholder="Enter title" data-title-of-note><input type="text" class="form-control cc" placeholder="Enter id" oninput="this.value=this.value.replaceAll('#','').replaceAll(' ','').replaceAll('<','');" data-id-of-note >
+		</div>
+		<notable-post-cdns>
+		<script src="res/sd.js"></script>
+		<!-- bs script -->
+		<script src="res/bs.js"></script>
+		  <!-- github@codeninja02's alerts cdn -->
+		  
+		  <script src="res/swalt@codeninja02.js"></script>
+		  
+		</notable-post-cdns>
+		<script>
+						var encodeInfos ={
+ "base":{
+  ret:atob,
+  pus:btoa
+ },
+ "ascii":{
+  ret:unescape,
+  pus:escape
+ },
+ "none":{
+  ret:simpleText,
+  pus:simpleText
+ }
+}
+						showdown.setFlavor('github');
+						showdown.setOption('ghMentions', 'true');
+						showdown.setOption('ghMentionsLink', '#{u}');
+						showdown.setOption('underline', 'true');
+				$ = (str) =>{
+  return document.querySelector(str);
+}
+$all = (str) =>{
+  return document.querySelectorAll(str)
+}
+var previewIsOn=false;
+
+$("button[data-type=preview-for-note]").addEventListener('click', function (){
+if(previewIsOn!=true){
+
+previewIsOn=true;
+$("button[data-saver]").disabled=true;
+var converter = new showdown.Converter();
+this.style.border="1px solid #6610f2";
+  var text      = $("textarea[data-type=input-for-note]").value;
+  txt=text.replaceAll("<","&lt;");
+    
+    html      = converter.makeHtml(txt);
+    html = html.replaceAll("&ampgt","&lt;");
+    $("textarea[data-type=input-for-note]").placeholder="";
+    
+    $("div[data-type=preview-for-note]").innerHTML = html;
+    
+    $("textarea[data-type=input-for-note]").value="";
+    $("textarea[data-type=input-for-note]").style.display="none";
+    this.innerHTML=`<i class="material-icons" style="margin:auto;">play_disabled</i>`;
+$all("a").forEach(function (e){
+e.dataset.href=e.href;
+e.href="#"
+console.log(e.href);
+e.addEventListener('click', function (e){
+swalt(`
+				${this.dataset.href} will be loaded after click .
+				You can't leave now because the note will not be saved.
+				<br>
+				still if you want to go then
+   <a href="${this.dataset.href}">click here</a>
+				`,{
+								title:"you can't leave session",
+								btnValue:"I understood",
+				});
+});
+});   
+    this.addEventListener('dblclick', function (){
+    $("button[data-saver]").disabled=false;
+    this.innerHTML=`<i class="material-icons" style="margin:auto;">play_circle</i>`;
+    previewIsOn=false;
+    this.style.border="1px solid transparent"
+ 
+    $("textarea[data-type=input-for-note]").placeholder="> start Note here";
+       $("div[data-type=preview-for-note]").innerHTML=""; 
+       $("textarea[data-type=input-for-note]").focus();
+    $("textarea[data-type=input-for-note]").style.display="block";
+    $("textarea[data-type=input-for-note]").value=text;
+    });
+   }
+});		
+function guide (){
+swalt(`
+				<div style="text-align:left; overflow:scroll" class="markdown-body">
+				<h3>Info</h3><br>
+			This is markdown editor for notes 
+			for getting started with id code in the input area.<br>
+			<hr />
+			<h3>Preview</h3><br>
+		
+							By clicking (button in ui)<br>
+							<i class="material-icons">play_circle</i><br>
+							You will get preview of your md note
+      <br>
+			    To continue writing back from preview you should click  on(same button)<br>
+<i class="material-icons">play_disabled</i><br>
+double times.
+    <hr>
+				<h3>Type tools</h3>
+				<i class="material-icons">format_italic</i><br>
+				<i>italic </i> : this is used to convert your md note template's particular word/sentence/paragraph into italic format.
+				<br>After clicking on it it'll provide you 2 stars like <kbd>**</kbd>.
+				You have to type your matter between two stars but you have no need to do it your cursor/caret will already present there(between two stars).If it won't you have to do at your self.
+				<br><kbd>*italic*</kbd> => <i>italic</i><br>
+				<i class="material-icons">format_bold</i>
+				<br>
+				<b>bold </b> : This is type of bold text. It works similarly as italic but in bold there are 4 stars like <kbd>****</kbd><br>
+				keep cursor between them if it's not automatically .<br>
+				<kbd>**bold**</kbd> => <b>bold</b><br>
+				<i class="material-icons">link</i><br>
+				<a href="#">link </a> : This will help to make text formatted links means not showing url links.after clicking you will get alert and you have to fill infos about link it's simple.
+				<kbd>[title](link) </kbd> => <a href="#" class="btn-link">title</a><br>
+				<i class="material-icons">strikethrough_s</i><i class="material-icons">format_underlined</i>
+				strike through and underline<br>
+    Both works similarly but underline have <kbd> ____ </kbd> four underscores amd strike through have <kbd> ~~~~ </kbd> four this type of symbols.you have to keep cursor in between it if it doesn't automatically.<br>
+    <kbd> __under__ </kbd> => <u>under</u><br>
+    <kbd> ~~strike~~ </kbd> => <del>strike</del><br>
+    <i class="material-icons">unfold_less</i>
+    This is just to remove toolbar when you are getting hard to see your md note template.
+    <hr>
+    
+				</div>
+			
+				`,{
+								title:"<h5>Guide for md notable editor</h5>",
+								btnValue:"Got it !",
+								mode: localStorage.mode || "light",
+				});
+}
+/*buttons as link*/
+$all("button").forEach(function (e){if(e.dataset.href){e.addEventListener('click',()=>{window.location.assign(e.dataset.href)});}});
+/*creating toolbar*/
+var textToolbarElement = [	{	icon:"format_italic",fun: function (e,t,ta){var pos = ta.selectionStart;ta.value=ta.value.substring(0,pos) + "**"+ta.value.substring(pos,ta.value.length);setCursor(ta,pos+1);}},{icon:"format_bold",fun: function (e,t,ta){var pos = ta.selectionStart;ta.value=ta.value.substring(0,pos) + "****"+ta.value.substring(pos,ta.value.length);setCursor(ta,pos+2);}},{icon:"format_underlined",fun: function (e,t,ta){var pos = ta.selectionStart;ta.value=ta.value.substring(0,pos) + " ____ "+ta.value.substring(pos,ta.value.length);setCursor(ta,pos+3);}},{icon:"strikethrough_s",fun:function (e,t,ta){var pos = ta.selectionStart;								 ta.value=ta.value.substring(0,pos) + "~~~~"+ta.value.substring(pos,ta.value.length);setCursor(ta,pos+2);}},{icon:"link",fun: function (e,t,ta){	var al = document.createElement("div");var inAl = document.createElement("div");inAl.style.paddingTop=15+"px";	al.classList.add('alert-super-container',`alert-${localStorage.mode}`);				document.body.append(al);al.append(inAl);	inAl.classList.add('alert-container');								inAl.style.paddingBottom="0";inAl.innerHTML=`<p class="para">Enter information about url</p><div style="padding:15px;" ><input style="margin-bottom:5px;"class="alert-input" placeholder="Enter title for url" data-input-link-0><input placeholder="Enter url" class="alert-input"  data-input-link-1 ></div><div style="display:flex;width:100%;"><button class='alert-btn'style='border-radius:0;border-left:0;border-right:0;border-bottom:0' data-close-btn-alert-of-link>Close</button><button class='alert-btn' style="border-radius:0;border-left:0;border-right:0;border-bottom:0;" data-add-alert-link>Add</button>	</div>`;$("button[data-close-btn-alert-of-link]").addEventListener('click', function (){al.remove();});t.remove();$("textarea[data-type=input-for-note]").style.height="calc(100vh - 100px)";$("div[data-type=preview-for-note]").style.height="calc(100vh - 100px)";$("button[data-add-alert-link]").addEventListener('click', function(){link = $("input[data-input-link-1]").value;tit = $("input[data-input-link-0]").value;var pos = ta.selectionStart; ta.value=ta.value.substring(0,pos) +` [${tit}](${link}) `+ta.value.substring(pos,ta.value.length);								 setCursor(ta,pos+tit.length+link.length+6);al.remove();	 });	}},{	icon:"unfold_less",	fun:(e,t,ta)=>{t.remove();$("textarea[data-type=input-for-note]").style.height="calc(100vh - 100px)";$("div[data-type=preview-for-note]").style.height="calc(100vh - 100px)";}}]
+$("textarea[data-type=input-for-note]").addEventListener('focus', function (e){
+if(!$(".toolbar-on-focus")){
+var toolbar = document.createElement('div');
+toolbar.classList.add('toolbar-on-focus');
+document.body.append(toolbar);
+$("textarea[data-type=input-for-note]").style.height="calc(100vh - 150px)";
+$("div[data-type=preview-for-note]").style.height="calc(100vh - 150px)";
+for(tool of textToolbarElement){
+var tl = document.createElement('button');
+tl.classList.add('btn','mt-ico-nt')
+tl.innerHTML=`<i class="material-icons">${tool.icon}</i>`
+toolbar.append(tl);
+tl.dataset.num=textToolbarElement.indexOf(tool);
+tl.addEventListener('click', function (e){
+textToolbarElement[this.dataset.num].fun(e,toolbar,$("textarea[data-type=input-for-note]"));
+});
+}
+}
+});
+function setCursor(elemId, caretPos) {
+    var elem = elemId;
+
+    if(elem != null) {
+        if(elem.createTextRange) {
+            var range = elem.createTextRange();
+            range.move('character', caretPos);
+            range.select();
+        }
+        else {
+            if(elem.selectionStart) {
+                elem.focus();
+                elem.setSelectionRange(caretPos, caretPos);
+            }
+            else
+                elem.focus();
+        }
+    }
+}
+function simpleText(s) {
+			return s;	
+}
+
+if(!sessionStorage.encodeType){
+	sessionStorage.encodeType="none";
+}
+
+$("button[data-saver]").addEventListener('click', function (){
+var title_of_note = $("input[data-title-of-note]").value;
+var id_of_note =$("input[data-id-of-note]").value.replaceAll('<','');
+if(id_of_note!=""&&title_of_note!=""&&id_of_note!=" "*id_of_note&&title_of_note!=" "*title_of_note){
+var isEdit = getParam("edit",window.location.href||location.href);
+	console.log(localStorage.noteStores)
+var allNotes = JSON.parse(localStorage.noteStores);
+	
+if(Object.keys(allNotes).includes(id_of_note)&&isEdit!="true"){
+	swalt(`Id is already in use try something another ..`,{
+		title:"ID is already taken try any another",
+		btnValue:'okay',mode:localStorage.mode||"light",
+	});
+}else{
+if(allNotes[id_of_note]){
+ 
+if(allNotes[id_of_note]){
+	allNotes[id_of_note]={
+		title:title_of_note,
+		id:id_of_note,
+		generatedId:Object.keys(allNotes).length,
+		content:$("textarea[data-type=input-for-note]").value,
+		cat:allNotes[id_of_note].cat
+}
+}else{
+	allNotes[id_of_note]={
+		title:title_of_note,
+		id:id_of_note,
+		generatedId:Object.keys(allNotes).length,
+		content:$("textarea[data-type=input-for-note]").value,
+}
+}
+	}else{
+	allNotes[id_of_note]={
+		title:title_of_note,
+		id:id_of_note,
+		generatedId:Object.keys(allNotes).length,
+		content:$("textarea[data-type=input-for-note]").value,}
+	}
+	localStorage.noteStores=JSON.stringify(allNotes);
+	swalt(`NOTE is saved successfully <br>with id ${id_of_note} <br>`,{
+		title:"SAVED",
+		btnValue:'okay',mode:localStorage.mode||"light",
+	});
+}
+}else{
+	swalt("Please make sure that you entered title and id for note and 0 is not allowed at first position of title or id.",{
+		title:"Something went wrong",
+		mode:localStorage.mode||"light",
+		btnValue:"okay"
+	});
+}
+});
+
+</script>
+	
+</body>
+</html>

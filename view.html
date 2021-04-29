@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+				<title></title>
+				<link rel="icon"href="app data/ico@max.png">
+				<!-- link for bs style -->
+				<link rel="stylesheet" href="res/bs.css">
+				<!-- gh@sindresorhus's markdown css -->
+				<link rel="stylesheet" href="res/ghmdsindre.css">
+				<!-- own style -->
+				<link rel="stylesheet" href="style.css">
+			<!-- meta -->
+			
+			<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <style>
+    				.fb-fab{
+    				 position:fixed;
+    				 bottom:5px;
+    				 right:5px;
+    				}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid" style="overflow:scroll;">
+    <a class="navbar-brand" >title</a>
+  </div>
+</nav>
+				<div style="width:100vw;padding:10px;"class="markdown-body">
+								
+				</div>
+				<a href="index.html" class="fb-fab btn btn-dark">back</button>
+<post-scripts>
+				<script src="res/sd.js"></script>
+</post-scripts>				
+<script>
+	showdown.setFlavor('github');
+						showdown.setOption('ghMentions', 'true');
+						showdown.setOption('ghMentionsLink', '#{u}');
+						showdown.setOption('underline', 'true');
+var converter = new showdown.Converter();
+var text      = sessionStorage.con||"";
+if(sessionStorage.id){
+  txt=text.replaceAll("<","&lt;");
+    
+    html      = converter.makeHtml(txt);
+    html = html.replaceAll("&ampgt","&lt;");
+    	document.querySelector(".markdown-body").innerHTML=html;
+console.log(html);   document.querySelector(".navbar-brand").innerHTML = `
+   ${sessionStorage.title} <small style="font-size:10px;">${sessionStorage.id}</small>
+  `;
+  document.querySelector("title").innerHTML=`${sessionStorage.title}`
+}else{
+document.querySelector("body").innerHTML="<div class='markdown-body'><pre><code>invalid redirection</code></pre><hr><a href='index.html'>home</a></div>";
+}
+</script>
+</body>
+</html>
