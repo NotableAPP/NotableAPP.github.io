@@ -10,6 +10,12 @@ $ = (str) =>{
 $all = (str) =>{
   return document.querySelectorAll(str)
 }
+getParam=(p,str)=>{
+
+var url = new URL(str);
+var c = url.searchParams.get(p);
+console.log(c);return c
+}
 
 HTMLInputElement.prototype.setCursor = (pos) => {var tag = this;var setpos = document.createRange();var set = window.getSelection(); setpos.setStart(tag.childNodes[0], pos); setpos.collapse(true);set.removeAllRanges();  set.addRange(setpos); tag.focus(); }
 for(tab of $all('.nav-link')){
