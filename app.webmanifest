@@ -29,7 +29,7 @@
     {
       "src": "/app data/edit.png",
       "sizes": "512x512",
-      "type": "image/svg"
+      "type": "image/png"
     }
   ],
     "description": "Note your notes."
@@ -39,9 +39,9 @@
     "url": "https://notableapp.github.io/?openTask=true",
 "icons": [
     {
-      "src": "/app data/add_task_black_24dp.svg",
-      "sizes": "96x96",
-      "type": "image/svg"
+      "src": "/app data/done.png",
+      "sizes": "225x225",
+      "type": "image/png"
     }
   ],
     "description": "Note your notes."
