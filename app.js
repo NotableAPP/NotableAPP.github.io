@@ -388,7 +388,7 @@ $("input[data-cat-g]").focus();$("input[data-cat-g]").style.borderColor="red";
 								});
 								}
 }
-$('.nav-link').click();
+if(getParam('openTask',window.location.href)!=true){$('.nav-link').click();}else{$all('.nav-link')[1].click()};
 grab_search=(str)=>{
 if(str!=""&&str!=" "*str.length){
 str = str.toLowerCase();
