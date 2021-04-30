@@ -27,8 +27,8 @@
     "url": "https://notableapp.github.io/",
 "icons": [
     {
-      "src": "/app data/note_add_black_24dp.svg",
-      "sizes": "96x96",
+      "src": "/app data/edit.png",
+      "sizes": "512x512",
       "type": "image/svg"
     }
   ],
