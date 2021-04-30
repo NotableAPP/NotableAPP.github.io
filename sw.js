@@ -3,6 +3,7 @@ self.addEventListener('install', function(e) {
       caches.open('notableapp').then(function(cache) {
         return cache.addAll([
           'https://notableapp.github.io/',
+          'https://notableapp.github.io/?openTask=true',
           'index.html',
           'index.html?openTask=true',
           'create.html',
