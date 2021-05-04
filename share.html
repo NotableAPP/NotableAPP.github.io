@@ -46,8 +46,8 @@ console.log(c);return c}
      window.location.assign('index.html');
     }
     $("#share-commit").addEventListener('click', function (e){
-    				sessionStorage.cnt=`# ${getParam ('title',window.location.href)}
-    				${getParam ('text',window.location.href)}`;
+    				sessionStorage.cnt=`# ${getParam ('title',window.location.href)} 
+${getParam ('text',window.location.href)}`;
     				window.location.assign('create.html?edit=true');
     				sessionStorage.i=`${getParam ('title',window.location.href).replaceAll(' ','_')+localStorage.noteStores.length}`
     });
