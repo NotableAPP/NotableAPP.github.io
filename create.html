@@ -106,10 +106,8 @@ previewIsOn=true;
 $("button[data-saver]").disabled=true;
 var converter = new showdown.Converter();
 this.style.border="1px solid #6610f2";
-  var text      = $("textarea[data-type=input-for-note]").value;
-  txt=text.replaceAll("<","&lt;");
-    
-    html      = converter.makeHtml(txt);
+    var text      = $("textarea[data-type=input-for-note]").value;
+    html      = converter.makeHtml(text);
     html = html.replaceAll("&ampgt","&lt;");
     $("textarea[data-type=input-for-note]").placeholder="";
     
